@@ -274,11 +274,10 @@ class CustomDiffusion(LatentDiffusion):
 
     def training_step(self, batch, batch_idx):
         if isinstance(batch, list):
-            train_batch = batch[0]
-            train2_batch = batch[1]
-            loss_train, loss_dict = self.shared_step(train_batch)
-            loss_train2, _ = self.shared_step(train2_batch)
-            loss = loss_train + loss_train2
+            loss, loss_dict = self.shared_step(batch[0])
+            for train_batch in batch[1:]:
+                new_loss, _ = self.shared_step(train_batch)
+                loss += new_loss
         else:
             train_batch = batch
             loss, loss_dict = self.shared_step(train_batch)

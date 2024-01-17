@@ -1,0 +1,31 @@
+data:
+  target: train_multi.DataModuleFromConfig
+  params:
+    batch_size: 4
+    num_workers: 4
+    wrap: false
+    train_infos:
+      mouse:
+        target: src.finetune_data.MaskBase
+        params:
+          size: 512
+          caption: "<new1> mouse"
+          datapath: "data/mouse"
+          reg_caption: "real_reg/samples_mouse/caption.txt"
+          reg_datapath: "real_reg/samples_mouse/images.txt"
+      blue:
+        target: src.finetune_data.MaskBase
+        params:
+          size: 512
+          caption: "<new2> blue"
+          datapath: "data/blue"
+          reg_caption: "real_reg/sample_blue/caption.txt"
+          reg_datapath: "real_reg/sample_blue/images.txt"
+      cat:
+        target: src.finetune_data.MaskBase
+        params:
+          size: 512
+          caption: "<new3> cat"
+          datapath: "data/cat"
+          reg_caption: "real_reg/samples_cat/caption.txt"
+          reg_datapath: "real_reg/samples_cat/images.txt"
