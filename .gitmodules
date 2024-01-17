@@ -1,0 +1,3 @@
+[submodule "CustomDenseDiffusion"]
+	path = CustomDenseDiffusion
+	url = https://github.com/WWzzEE2/CustomDenseDiffusion.git
