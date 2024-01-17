@@ -53,3 +53,7 @@ Note that`data` section in the original configuration will be omitted.
 ## Improvement code
 
 Dense diffusion doesn't fit very well with custom diffusion, so we change some code there too; we refer the changed code as submodules.
+
+To run Dense diffusion on a pretrained custom diffusion, we strongly recommand you to use diffusers, a convenient diffusion lib. See more details about how to train a custom diffusion through diffusers in [REAME-original](./README-original.md), and don't forget to change your base model to `runwayml/stable-diffusion-v1-5`
+
+Once you get the checkpoints in diffusers format (.bin), put them in `CustomDenseDiffusion/ckpt`, and then run `gradio_app.py`, just like the way to start a Dense Diffusion WebUI. Now, you can use your personal concept along with layout condition.
